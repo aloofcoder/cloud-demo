@@ -1,0 +1,29 @@
+server:
+  port: 8882
+  servlet:
+    context-path: /ui
+    session:
+      cookie:
+        name: UISESSION
+
+spring:
+  application:
+    name: hi-server
+  thymeleaf:
+    cache: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8881/eureka/
+security:
+  oauth2:
+    client:
+      access-token-uri: http://localhost:8883/oauth/token
+      user-authorization-uri: http://localhost:8883/oauth/authorize
+      client-id: SampleClientId
+      client-secret: secret
+    resource:
+      user-info-uri: http://localhost:8883/user/me
+  basic:
+    enabled: false
